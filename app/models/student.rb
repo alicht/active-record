@@ -4,6 +4,8 @@ class Student < ApplicationRecord
 
   scope :top, -> { order(grade: :desc).first }
 
+  validates_presence_of :name, :photo
+
   def peers
     Student.where(course_id: course_id)
   end
